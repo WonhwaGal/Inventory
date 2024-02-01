@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c1bdd2e336f68144b8706ce1ffd964c, type: 3}
+  m_Name: InventorySO
+  m_EditorClassIdentifier: 
+  _items:
+  - Name: ' Dark Armour'
+    Id: 100
+    ItemType: 0
+    Image: {fileID: 21300000, guid: b0bd1a621ae8d00408a030ce24832841, type: 3}
+    Characteristic:
+      Type: 0
+      Image: {fileID: 1695395528, guid: 51df1abb291e71547860b2b9585c5dd4, type: 3}
+      Value: 13
+  - Name: Scout Armour
+    Id: 101
+    ItemType: 0
+    Image: {fileID: 21300000, guid: 02ea28946b29e434bb14f816faf9697d, type: 3}
+    Characteristic:
+      Type: 2
+      Image: {fileID: -582314217, guid: 51df1abb291e71547860b2b9585c5dd4, type: 3}
+      Value: 5
+  - Name: ' Hunter Bow'
+    Id: 200
+    ItemType: 1
+    Image: {fileID: 21300000, guid: 9d9d80e1a816ef84e9b9c67d5e3ced56, type: 3}
+    Characteristic:
+      Type: 3
+      Image: {fileID: -1262250301, guid: 51df1abb291e71547860b2b9585c5dd4, type: 3}
+      Value: 20
