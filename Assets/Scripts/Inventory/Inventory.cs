@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using UnityEngine;
 
 namespace ForInventory
 {
@@ -24,59 +23,66 @@ namespace ForInventory
 
         public void Add(InventoryItem item)
         {
-            if (!_inventoryList.ContainsKey(item.ItemType))
+            if(_inventoryList.TryGetValue(item.ItemType, out LinkedList<InventoryItem> linked))
             {
-                _inventoryList.Add(item.ItemType, new LinkedList<InventoryItem>(new InventoryItem[] { item }));
-                item.Count = 1;
-                return;
+                var listItem = FindItem(linked, item.Id);
+                if(listItem != null)
+                    listItem.Count++;
+                else
+                    linked.AddLast(item).Value.Count = 1;
             }
-
-            var list = _inventoryList[item.ItemType];
-            foreach (InventoryItem listItem in list)
+            else
             {
-                if (listItem.Id != item.Id)
-                    continue;
-
-                listItem.Count++;
-                return;
+                var newList = new LinkedList<InventoryItem>();
+                _inventoryList.Add(item.ItemType, newList);
+                newList.AddFirst(item).Value.Count = 1;
             }
-
-            list.AddLast(item);
         }
 
         public int Remove(InventoryItem item)
         {
-            var list = _inventoryList[item.ItemType];
-            foreach (InventoryItem listItem in list)
+            if (_inventoryList.TryGetValue(item.ItemType, out LinkedList<InventoryItem> linked))
             {
-                if (listItem.Id != item.Id)
-                    continue;
-
-                listItem.Count--;
-                if (listItem.Count == 0)
-                    _inventoryList[item.ItemType].Remove(listItem);
-
-                return listItem.Count;
+                var listItem = FindItem(linked, item.Id);
+                if(listItem != null)
+                {
+                    listItem.Count--;
+                    if (listItem.Count == 0)
+                        _inventoryList[item.ItemType].Remove(listItem);
+                    return listItem.Count;
+                }
             }
             return 0;
+        }
+
+        private InventoryItem FindItem(LinkedList<InventoryItem> list, int id)
+        {
+            foreach (var listItem in list)
+            {
+                if (listItem.Id == id)
+                    return listItem;
+            }
+            return null;
         }
 
         public IReadOnlyCollection<InventoryItem> FilterBy(InventoryType type, CharacteristicType characteristic)
         {
             var selection = new LinkedList<InventoryItem>();
-            foreach (InventoryItem item in _inventoryList[type])
+            if(_inventoryList.TryGetValue(type, out LinkedList<InventoryItem> linked))
             {
-                if (item.CharacteristicType == characteristic)
-                    selection.AddLast(item);
+                foreach (InventoryItem item in linked)
+                {
+                    if (item.CharacteristicType == characteristic)
+                        selection.AddLast(item);
+                }
             }
             return selection;
         }
 
         public IReadOnlyCollection<InventoryItem> GetByType(InventoryType type)
         {
-            if (_inventoryList.ContainsKey(type))
-                return _inventoryList[type];
-
+            if (_inventoryList.TryGetValue(type, out LinkedList<InventoryItem> linked))
+                return linked;
             return null;
         }
     }

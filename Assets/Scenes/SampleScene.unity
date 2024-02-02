@@ -133,6 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 80976388}
   - component: {fileID: 80976389}
+  - component: {fileID: 80976390}
   m_Layer: 5
   m_Name: Content
   m_TagString: Untagged
@@ -157,8 +158,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.0045222216}
-  m_SizeDelta: {x: 281.0844, y: 300}
+  m_AnchoredPosition: {x: 0, y: -0.000049591064}
+  m_SizeDelta: {x: 0, y: 300}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &80976389
 MonoBehaviour:
@@ -184,6 +185,20 @@ MonoBehaviour:
   m_Spacing: {x: 0, y: 0}
   m_Constraint: 2
   m_ConstraintCount: 2
+--- !u!114 &80976390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 80976387}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3245ec927659c4140ac4f8d17403cc18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HorizontalFit: 2
+  m_VerticalFit: 0
 --- !u!1 &278247931
 GameObject:
   m_ObjectHideFlags: 0
@@ -501,8 +516,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 278247933}
   m_HandleRect: {fileID: 278247932}
   m_Direction: 0
-  m_Value: 0
-  m_Size: 0.7399977
+  m_Value: 1
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -621,7 +636,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.9490196, g: 0.9137255, b: 0.80784315, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -992,8 +1007,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1504544274}
   m_HandleRect: {fileID: 1504544273}
   m_Direction: 2
-  m_Value: 0
-  m_Size: 0.88576156
+  m_Value: 1
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -2127,7 +2142,9 @@ MonoBehaviour:
   _characteristicSO: {fileID: 11400000, guid: decaecc95a880e141a2a16aa6736c6d1, type: 2}
   _prefabs: {fileID: 11400000, guid: ebb51f5867e7e474ca4a7ebc802c1e8d, type: 2}
   _inventoryView: {fileID: 2009241595}
-  _spawnRadius: 6
+  _spawnRadius: 10
+  _minSpanNumber: 0
+  _maxSpanNumber: 7
 --- !u!4 &2092063792
 Transform:
   m_ObjectHideFlags: 0

@@ -13,27 +13,213 @@ MonoBehaviour:
   m_Name: InventorySO
   m_EditorClassIdentifier: 
   _items:
-  - Name: ' Dark Armour'
+  - Name: Manticore Armour
     Id: 100
     ItemType: 1
-    Image: {fileID: 21300000, guid: b0bd1a621ae8d00408a030ce24832841, type: 3}
-    CharacteristicType: 1
-    CharacteristicValue: 4
-  - Name: Scout Armour
+    Image: {fileID: 21300000, guid: 9d9ee828ed26ecf4288ad12de3ff08a9, type: 3}
+    CharacteristicType: 6
+    CharacteristicValue: 25
+  - Name: Bandit Armour
     Id: 101
     ItemType: 1
+    Image: {fileID: 21300000, guid: 1b5d43acbb546bc4dab82aa3e7f37d1a, type: 3}
+    CharacteristicType: 5
+    CharacteristicValue: 26
+  - Name: Grey Knight Armour
+    Id: 102
+    ItemType: 1
+    Image: {fileID: 21300000, guid: 6b1ec3e03b84baa49bf72c22a63d8292, type: 3}
+    CharacteristicType: 11
+    CharacteristicValue: 5
+  - Name: Scout Armour
+    Id: 103
+    ItemType: 1
     Image: {fileID: 21300000, guid: 02ea28946b29e434bb14f816faf9697d, type: 3}
-    CharacteristicType: 3
+    CharacteristicType: 12
+    CharacteristicValue: 99
+  - Name: Dark Mountain Armour
+    Id: 104
+    ItemType: 1
+    Image: {fileID: 21300000, guid: b0bd1a621ae8d00408a030ce24832841, type: 3}
+    CharacteristicType: 10
+    CharacteristicValue: 14
+  - Name: Royal Tunic Armour
+    Id: 105
+    ItemType: 1
+    Image: {fileID: 21300000, guid: 0f3cb59fd72329045bb9c9e2569cf67f, type: 3}
+    CharacteristicType: 7
+    CharacteristicValue: 3
+  - Name: Battleguard Armour
+    Id: 106
+    ItemType: 1
+    Image: {fileID: 21300000, guid: 7ef47d938a57ca642bc7c076bdace3ab, type: 3}
+    CharacteristicType: 9
+    CharacteristicValue: 11
+  - Name: Battleguard Helmet
+    Id: 107
+    ItemType: 1
+    Image: {fileID: 21300000, guid: a7478b13a1541fe4cbbccaabf7e8b847, type: 3}
+    CharacteristicType: 9
+    CharacteristicValue: 20
+  - Name: DarkMountain Helmet
+    Id: 108
+    ItemType: 1
+    Image: {fileID: 21300000, guid: 80a31f1dda5392044b160d3f5f3f048d, type: 3}
+    CharacteristicType: 10
+    CharacteristicValue: 55
+  - Name: HighKnight Helmet
+    Id: 109
+    ItemType: 1
+    Image: {fileID: 21300000, guid: 3160f8a8f3cb6134e92cc0237d0e316f, type: 3}
+    CharacteristicType: 1
+    CharacteristicValue: 28
+  - Name: Manticore Helmet
+    Id: 110
+    ItemType: 1
+    Image: {fileID: 21300000, guid: 6af4da6b8c6aaa8488fbc48c3fdacac0, type: 3}
+    CharacteristicType: 6
+    CharacteristicValue: 9
+  - Name: Knight Helmet
+    Id: 111
+    ItemType: 1
+    Image: {fileID: 21300000, guid: 7bf83ac8b95926a4ea1552c9191bd498, type: 3}
+    CharacteristicType: 11
     CharacteristicValue: 15
-  - Name: ' Hunter Bow'
+  - Name: Scout Helmet
+    Id: 112
+    ItemType: 1
+    Image: {fileID: 21300000, guid: 782de74d1e4e6654394cf80f1589f633, type: 3}
+    CharacteristicType: 12
+    CharacteristicValue: 3
+  - Name: Hawk Helmet
+    Id: 113
+    ItemType: 1
+    Image: {fileID: 21300000, guid: 12b2589fddec6eb4b9a97bf4bedf6f12, type: 3}
+    CharacteristicType: 4
+    CharacteristicValue: 13
+  - Name: GreyKnight Knee Armour
+    Id: 114
+    ItemType: 1
+    Image: {fileID: 21300000, guid: 92ac1854e05484349b8dbaefe97ae3af, type: 3}
+    CharacteristicType: 11
+    CharacteristicValue: 32
+  - Name: Battleguard Boot Armour
+    Id: 115
+    ItemType: 1
+    Image: {fileID: 21300000, guid: 691bbe2809ec9ad499a8aa77591dc994, type: 3}
+    CharacteristicType: 9
+    CharacteristicValue: 12
+  - Name: Manticore Boot Armour
+    Id: 116
+    ItemType: 1
+    Image: {fileID: 21300000, guid: 050fbd847056e0a40b3eace519e8405e, type: 3}
+    CharacteristicType: 6
+    CharacteristicValue: 38
+  - Name: Battle Arrow
     Id: 200
     ItemType: 2
     Image: {fileID: 21300000, guid: 9d9d80e1a816ef84e9b9c67d5e3ced56, type: 3}
-    CharacteristicType: 4
-    CharacteristicValue: 8
-  - Name: Destroyer Axe
+    CharacteristicType: 9
+    CharacteristicValue: 25
+  - Name: Battle Bow
+    Id: 201
+    ItemType: 2
+    Image: {fileID: 21300000, guid: c717138daf06c6449879014c79012803, type: 3}
+    CharacteristicType: 9
+    CharacteristicValue: 67
+  - Name: Hunter Arrow
+    Id: 202
+    ItemType: 2
+    Image: {fileID: 21300000, guid: 9d9d80e1a816ef84e9b9c67d5e3ced56, type: 3}
+    CharacteristicType: 10
+    CharacteristicValue: 11
+  - Name: Hunter Bow
+    Id: 203
+    ItemType: 2
+    Image: {fileID: 21300000, guid: 80ece0dbb12c2b949bf8f33459cb1eb6, type: 3}
+    CharacteristicType: 10
+    CharacteristicValue: 53
+  - Name: Marader Bow
+    Id: 205
+    ItemType: 2
+    Image: {fileID: 21300000, guid: ec6946cc876d4ef4885c185ab21b1b46, type: 3}
+    CharacteristicType: 11
+    CharacteristicValue: 5
+  - Name: Marader Arrow
+    Id: 206
+    ItemType: 2
+    Image: {fileID: 21300000, guid: 00b29faf41652db4cbd011e5f32c0ab5, type: 3}
+    CharacteristicType: 11
+    CharacteristicValue: 5
+  - Name: Redwood Arrow
+    Id: 207
+    ItemType: 2
+    Image: {fileID: 21300000, guid: a0d8b35a785d25241a0923b201ab172f, type: 3}
+    CharacteristicType: 6
+    CharacteristicValue: 25
+  - Name: Redwood Bow
+    Id: 208
+    ItemType: 2
+    Image: {fileID: 21300000, guid: e5ebfa24a68f8e949abd7688c8164a97, type: 3}
+    CharacteristicType: 1
+    CharacteristicValue: 74
+  - Name: Viking Bow
+    Id: 209
+    ItemType: 2
+    Image: {fileID: 21300000, guid: f0cd0fe5c3224244b903204f3d4c1e5e, type: 3}
+    CharacteristicType: 2
+    CharacteristicValue: 150
+  - Name: Viking Arrow
+    Id: 210
+    ItemType: 2
+    Image: {fileID: 21300000, guid: d4380137368e7244190a04278956ebec, type: 3}
+    CharacteristicType: 12
+    CharacteristicValue: 25
+  - Name: Ariostin Sword
     Id: 300
     ItemType: 3
-    Image: {fileID: 21300000, guid: 304d7a509c7bd8144aab9c9b1b261c05, type: 3}
-    CharacteristicType: 12
-    CharacteristicValue: 32
+    Image: {fileID: 21300000, guid: d336cdd2959d64e408ce83f33a65115c, type: 3}
+    CharacteristicType: 2
+    CharacteristicValue: 84
+  - Name: Berserl Axe
+    Id: 301
+    ItemType: 3
+    Image: {fileID: 21300000, guid: c9df6d157fedca7499408f45ff78e7fd, type: 3}
+    CharacteristicType: 7
+    CharacteristicValue: 82
+  - Name: Butcher Knife
+    Id: 302
+    ItemType: 3
+    Image: {fileID: 21300000, guid: 9a605cba50772884a82a9a2322ec41a7, type: 3}
+    CharacteristicType: 9
+    CharacteristicValue: 27
+  - Name: Dark Sword
+    Id: 303
+    ItemType: 3
+    Image: {fileID: 21300000, guid: 8b9d6d95bf12e0540866016e9b49da67, type: 3}
+    CharacteristicType: 10
+    CharacteristicValue: 60
+  - Name: Mountain Sword
+    Id: 304
+    ItemType: 3
+    Image: {fileID: 21300000, guid: 56e7d077b9cc1db43ad6b60ca8ff2ab5, type: 3}
+    CharacteristicType: 2
+    CharacteristicValue: 7
+  - Name: Viking Axe
+    Id: 305
+    ItemType: 3
+    Image: {fileID: 21300000, guid: 27fcc3736752c9c498fa73617123ebf4, type: 3}
+    CharacteristicType: 8
+    CharacteristicValue: 59
+  - Name: Water Wand
+    Id: 306
+    ItemType: 3
+    Image: {fileID: 21300000, guid: 8383e462890fc684ca8fefda5022380e, type: 3}
+    CharacteristicType: 3
+    CharacteristicValue: 4
+  - Name: Wooden Club
+    Id: 307
+    ItemType: 3
+    Image: {fileID: 21300000, guid: 5a474097cd9b23e4180dd01acf011dd3, type: 3}
+    CharacteristicType: 4
+    CharacteristicValue: 49

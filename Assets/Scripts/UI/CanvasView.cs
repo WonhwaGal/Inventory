@@ -15,14 +15,10 @@ namespace UI
             _inventoryPanel.gameObject.SetActive(false);
         }
 
-        private void OpenInventory()
-        {
-            _inventoryPanel.gameObject.SetActive(true);
-        }
+        private void OpenInventory() 
+            => _inventoryPanel.gameObject.SetActive(true);
 
-        private void OnDestroy()
-        {
-            _openButton.onClick.RemoveListener(OpenInventory);
-        }
+        private void OnDestroy() 
+            => _openButton.onClick.RemoveListener(OpenInventory);
     }
 }

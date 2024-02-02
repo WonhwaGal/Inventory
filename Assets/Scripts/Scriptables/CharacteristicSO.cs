@@ -13,7 +13,10 @@ public class CharacteristicSO : ScriptableObject
     {
         var result = _characteristics.Find(x => x.Type == type);
         if (result == null)
+        {
             Debug.LogWarning($"{name}: element of type {type} was not found");
+            return null;
+        }
 
         return result.Image;
     }

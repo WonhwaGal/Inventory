@@ -15,40 +15,39 @@ namespace SpawnSystem
 
         public event Action OnRenewGrid;
 
+        public void RenewGrid() => OnRenewGrid?.Invoke();
+
         public GridItem Spawn(InventoryItem item)
         {
             GridItem result;
-            if (!_inactives.ContainsKey(item.Id))
+            if (_inactives.TryGetValue(item.Id, out GridItem gridItem))
             {
-                result = _factory.Create();
+                result = gridItem;
+                _inactives.Remove(item.Id);
             }
             else
             {
-                result = _inactives[item.Id];
-                _inactives.Remove(item.Id);
+                result = _factory.Create();
             }
 
-            if (result != null)
-                OnSpawnItem(result, item);
+            OnSpawnItem(result, item);
             return result;
         }
-
-        public void RenewGrid() => OnRenewGrid?.Invoke();
 
         private void OnSpawnItem(GridItem result, InventoryItem item)
         {
             result.Fill(item);
-            result.gameObject.SetActive(true);
             result.OnGetInactive += Despawn;
             OnRenewGrid += result.GetDisabled;
+            result.gameObject.SetActive(true);
         }
 
         private void Despawn(GridItem gridItem)
         {
             _inactives.Add(gridItem.ID, gridItem);
-            gridItem.gameObject.SetActive(false);
             gridItem.OnGetInactive -= Despawn;
             OnRenewGrid -= gridItem.GetDisabled;
+            gridItem.gameObject.SetActive(false);
         }
     }
 }

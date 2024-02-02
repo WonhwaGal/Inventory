@@ -17,11 +17,10 @@ namespace UI.MVC
         private void Start() 
             => _closeButton.onClick.AddListener(() => gameObject.SetActive(false));
 
-        private void OnEnable() => _inventoryTypes[0].RequestGridSorting();
+        private void OnEnable() 
+            => _inventoryTypes[0].RequestGridSorting();
 
-        private void OnDestroy()
-        {
-            _closeButton.onClick.RemoveAllListeners();
-        }
+        private void OnDestroy() 
+            => _closeButton.onClick.RemoveAllListeners();
     }
 }

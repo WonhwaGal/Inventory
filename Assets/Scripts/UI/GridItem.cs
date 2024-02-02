@@ -31,7 +31,7 @@ namespace UI
             _mainImage.sprite = item.Image;
             _countText.text = item.Count.ToString();
             _characteristicSprite.sprite = item.CharacteristicImage;
-            _valueText.text = item.CharacteristicValue.ToString();
+            _valueText.text = "+" + item.CharacteristicValue.ToString();
             _removeButton.onClick.AddListener(RemoveItem);
         }
 
@@ -51,7 +51,10 @@ namespace UI
 
         public void GetDisabled() => gameObject.SetActive(false);
 
-        private void OnDisable() => OnGetInactive?.Invoke(this);
-        private void OnDestroy() => _removeButton.onClick.RemoveAllListeners();
+        private void OnDisable()
+        {
+            OnGetInactive?.Invoke(this);
+            _removeButton.onClick.RemoveAllListeners();
+        }
     }
 }
