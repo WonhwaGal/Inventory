@@ -1,7 +1,8 @@
 
 public enum InventoryType
 {
-    Armour = 0,
-    Archery = 1,
-    Weapons = 2,
+    None = 0,
+    Armour = 1,
+    Archery = 2,
+    Weapons = 3,
 }

@@ -10,9 +10,10 @@ namespace ForInventory
         public int Id;
         public InventoryType ItemType;
         public Sprite Image;
-        public Characteristic Characteristic;
-        private int _count = 1;
+        public CharacteristicType CharacteristicType;
+        public int CharacteristicValue;
 
-        public int Count { get => _count; set => _count = value; }
+        public int Count { get; set; }
+        public Sprite CharacteristicImage {  get; set; }
     }
 }

@@ -1,25 +1,28 @@
+using UI.MVC;
 using UnityEngine;
 using UnityEngine.UI;
-using Views;
 
-public class CanvasView : MonoBehaviour
+namespace UI
 {
-    [SerializeField] private Button _openButton;
-    [SerializeField] private InventoryPanelView _inventoryPanel;
-
-    private void Start()
+    public class CanvasView : MonoBehaviour
     {
-        _openButton.onClick.AddListener(OpenInventory);
-        _inventoryPanel.gameObject.SetActive(false);
-    }
+        [SerializeField] private Button _openButton;
+        [SerializeField] private InventoryPanelView _inventoryPanel;
 
-    private void OpenInventory()
-    {
-        _inventoryPanel.gameObject.SetActive(true);
-    }
+        private void Start()
+        {
+            _openButton.onClick.AddListener(OpenInventory);
+            _inventoryPanel.gameObject.SetActive(false);
+        }
 
-    private void OnDestroy()
-    {
-        _openButton.onClick.RemoveListener(OpenInventory);
+        private void OpenInventory()
+        {
+            _inventoryPanel.gameObject.SetActive(true);
+        }
+
+        private void OnDestroy()
+        {
+            _openButton.onClick.RemoveListener(OpenInventory);
+        }
     }
 }

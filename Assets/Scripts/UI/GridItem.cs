@@ -1,50 +1,57 @@
-using ForInventory;
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using ForInventory;
 
-public class GridItem : MonoBehaviour, IPointerDownHandler, IPointerExitHandler
+namespace UI
 {
-    [SerializeField] private Image _mainImage;
-    [SerializeField] private TextMeshProUGUI _countText;
-    [SerializeField] private Image _characteristicSprite;
-    [SerializeField] private TextMeshProUGUI _valueText;
-    [SerializeField] private Button _removeButton;
-    private InventoryItem _inventoryItem;
-    private Inventory _inventory;
-
-    private void OnEnable() => _removeButton.gameObject.SetActive(false);
-
-    private void Start() => _inventory = Inventory.GetInstance();
-
-    public void Fill(InventoryItem item)
+    public class GridItem : MonoBehaviour, IPointerDownHandler, IPointerExitHandler
     {
-        _inventoryItem = item;
-        _mainImage.sprite = item.Image;
-        _countText.text = item.Count.ToString();
-        _characteristicSprite.sprite = item.Characteristic.Image;
-        _valueText.text = item.Characteristic.Value.ToString();
-        _removeButton.onClick.AddListener(RemoveItem);
-    }
+        [SerializeField] private Image _mainImage;
+        [SerializeField] private TextMeshProUGUI _countText;
+        [SerializeField] private Image _characteristicSprite;
+        [SerializeField] private TextMeshProUGUI _valueText;
+        [SerializeField] private Button _removeButton;
+        private InventoryItem _inventoryItem;
+        private Inventory _inventory;
 
-    public void OnPointerDown(PointerEventData eventData)
-    {
-        _removeButton.gameObject.SetActive(true);
-    }
+        public int ID => _inventoryItem.Id;
 
-    public void OnPointerExit(PointerEventData eventData)
-    {
-        _removeButton.gameObject.SetActive(false);
-    }
+        public event Action<GridItem> OnGetInactive;
 
-    private void RemoveItem()
-    {
-        _inventory.Remove(_inventoryItem);
-    }
+        private void OnEnable() => _removeButton.gameObject.SetActive(false);
 
-    private void OnDestroy()
-    {
-        _removeButton.onClick.RemoveAllListeners();
+        private void Start() => _inventory = Inventory.GetInstance();
+
+        public void Fill(InventoryItem item)
+        {
+            _inventoryItem = item;
+            _mainImage.sprite = item.Image;
+            _countText.text = item.Count.ToString();
+            _characteristicSprite.sprite = item.CharacteristicImage;
+            _valueText.text = item.CharacteristicValue.ToString();
+            _removeButton.onClick.AddListener(RemoveItem);
+        }
+
+        public void OnPointerDown(PointerEventData eventData)
+            => _removeButton.gameObject.SetActive(true);
+
+        public void OnPointerExit(PointerEventData eventData)
+            => _removeButton.gameObject.SetActive(false);
+
+        private void RemoveItem()
+        {
+            var count = _inventory.Remove(_inventoryItem);
+            _countText.text = count.ToString();
+            if (count == 0)
+                gameObject.SetActive(false);
+        }
+
+        public void GetDisabled() => gameObject.SetActive(false);
+
+        private void OnDisable() => OnGetInactive?.Invoke(this);
+        private void OnDestroy() => _removeButton.onClick.RemoveAllListeners();
     }
 }

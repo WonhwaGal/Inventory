@@ -15,25 +15,25 @@ MonoBehaviour:
   _items:
   - Name: ' Dark Armour'
     Id: 100
-    ItemType: 0
+    ItemType: 1
     Image: {fileID: 21300000, guid: b0bd1a621ae8d00408a030ce24832841, type: 3}
-    Characteristic:
-      Type: 0
-      Image: {fileID: 1695395528, guid: 51df1abb291e71547860b2b9585c5dd4, type: 3}
-      Value: 13
+    CharacteristicType: 1
+    CharacteristicValue: 4
   - Name: Scout Armour
     Id: 101
-    ItemType: 0
+    ItemType: 1
     Image: {fileID: 21300000, guid: 02ea28946b29e434bb14f816faf9697d, type: 3}
-    Characteristic:
-      Type: 2
-      Image: {fileID: -582314217, guid: 51df1abb291e71547860b2b9585c5dd4, type: 3}
-      Value: 5
+    CharacteristicType: 3
+    CharacteristicValue: 15
   - Name: ' Hunter Bow'
     Id: 200
-    ItemType: 1
+    ItemType: 2
     Image: {fileID: 21300000, guid: 9d9d80e1a816ef84e9b9c67d5e3ced56, type: 3}
-    Characteristic:
-      Type: 3
-      Image: {fileID: -1262250301, guid: 51df1abb291e71547860b2b9585c5dd4, type: 3}
-      Value: 20
+    CharacteristicType: 4
+    CharacteristicValue: 8
+  - Name: Destroyer Axe
+    Id: 300
+    ItemType: 3
+    Image: {fileID: 21300000, guid: 304d7a509c7bd8144aab9c9b1b261c05, type: 3}
+    CharacteristicType: 12
+    CharacteristicValue: 32

@@ -27,7 +27,7 @@ namespace ForInventory
             if (!_inventoryList.ContainsKey(item.ItemType))
             {
                 _inventoryList.Add(item.ItemType, new LinkedList<InventoryItem>(new InventoryItem[] { item }));
-                Debug.Log($"added {item.Name}, count is {item.Count}");
+                item.Count = 1;
                 return;
             }
 
@@ -38,20 +38,14 @@ namespace ForInventory
                     continue;
 
                 listItem.Count++;
-                Debug.Log($"added {item.Name}, count is {item.Count}, items of this type {list.Count}");
                 return;
             }
 
             list.AddLast(item);
-            Debug.Log($"added new item : {item.Name}, count is {item.Count}, items of this type {list.Count}");
         }
 
-        public void Remove(InventoryItem item)
+        public int Remove(InventoryItem item)
         {
-            if (!_inventoryList.ContainsKey(item.ItemType))
-                Debug.LogWarning($"Type {item.ItemType} was not found, " +
-                    $"{item.Name} with ID {item.Id} will not be removed");
-
             var list = _inventoryList[item.ItemType];
             foreach (InventoryItem listItem in list)
             {
@@ -60,14 +54,11 @@ namespace ForInventory
 
                 listItem.Count--;
                 if (listItem.Count == 0)
-                {
                     _inventoryList[item.ItemType].Remove(listItem);
-                    Debug.Log($"removed {item.Name} completely");
-                }
 
-                Debug.Log($"removed {item.Name}, count is {item.Count}, items of this type {list.Count}");
-                return;
+                return listItem.Count;
             }
+            return 0;
         }
 
         public IReadOnlyCollection<InventoryItem> FilterBy(InventoryType type, CharacteristicType characteristic)
@@ -75,12 +66,18 @@ namespace ForInventory
             var selection = new LinkedList<InventoryItem>();
             foreach (InventoryItem item in _inventoryList[type])
             {
-                if (item.Characteristic.Type == characteristic)
+                if (item.CharacteristicType == characteristic)
                     selection.AddLast(item);
             }
             return selection;
         }
 
-        public IReadOnlyCollection<InventoryItem> GetByType(InventoryType type) => _inventoryList[type];
+        public IReadOnlyCollection<InventoryItem> GetByType(InventoryType type)
+        {
+            if (_inventoryList.ContainsKey(type))
+                return _inventoryList[type];
+
+            return null;
+        }
     }
 }

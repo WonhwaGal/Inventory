@@ -8,6 +8,5 @@ namespace ForInventory
     {
         public CharacteristicType Type;
         public Sprite Image;
-        public int Value;
     }
 }
