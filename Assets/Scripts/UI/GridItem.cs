@@ -17,7 +17,7 @@ namespace UI
         private InventoryItem _inventoryItem;
         private Inventory _inventory;
 
-        public int ID => _inventoryItem.Id;
+        public Guid ID => _inventoryItem.ID;
 
         public event Action<GridItem> OnGetInactive;
 

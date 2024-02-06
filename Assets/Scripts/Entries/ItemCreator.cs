@@ -1,5 +1,7 @@
+using System;
 using UnityEngine;
 using Views;
+using Random = UnityEngine.Random;
 
 public class ItemCreator
 {
@@ -22,6 +24,9 @@ public class ItemCreator
         {
             var item = _inventorySO.Items[i];
             item.CharacteristicImage = _characteristicSO.FindByType(item.CharacteristicType);
+
+            if (item.ID == Guid.Empty)
+                item.ID = Guid.NewGuid();
 
             var randomNumber = Random.Range(minNumber, maxNumber + 1);
             for(int j = 0; j < randomNumber; j++)

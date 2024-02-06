@@ -8,7 +8,7 @@ namespace SpawnSystem
 {
     public class UIPool
     {
-        private readonly Dictionary<int, GridItem> _inactives = new();
+        private readonly Dictionary<Guid, GridItem> _inactives = new();
         private readonly UIFactory _factory;
 
         public UIPool(GridItem gridItem, Transform root) => _factory = new(gridItem, root);
@@ -20,10 +20,10 @@ namespace SpawnSystem
         public GridItem Spawn(InventoryItem item)
         {
             GridItem result;
-            if (_inactives.TryGetValue(item.Id, out GridItem gridItem))
+            if (_inactives.TryGetValue(item.ID, out GridItem gridItem))
             {
                 result = gridItem;
-                _inactives.Remove(item.Id);
+                _inactives.Remove(item.ID);
             }
             else
             {

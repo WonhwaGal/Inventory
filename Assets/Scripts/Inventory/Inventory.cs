@@ -1,4 +1,6 @@
+using System;
 using System.Collections.Generic;
+using UnityEngine;
 
 namespace ForInventory
 {
@@ -25,7 +27,7 @@ namespace ForInventory
         {
             if(_inventoryList.TryGetValue(item.ItemType, out LinkedList<InventoryItem> linked))
             {
-                var listItem = FindItem(linked, item.Id);
+                var listItem = FindItem(linked, item.ID);
                 if(listItem != null)
                     listItem.Count++;
                 else
@@ -43,7 +45,7 @@ namespace ForInventory
         {
             if (_inventoryList.TryGetValue(item.ItemType, out LinkedList<InventoryItem> linked))
             {
-                var listItem = FindItem(linked, item.Id);
+                var listItem = FindItem(linked, item.ID);
                 if(listItem != null)
                 {
                     listItem.Count--;
@@ -55,11 +57,11 @@ namespace ForInventory
             return 0;
         }
 
-        private InventoryItem FindItem(LinkedList<InventoryItem> list, int id)
+        private InventoryItem FindItem(LinkedList<InventoryItem> list, Guid id)
         {
             foreach (var listItem in list)
             {
-                if (listItem.Id == id)
+                if (listItem.ID == id)
                     return listItem;
             }
             return null;
