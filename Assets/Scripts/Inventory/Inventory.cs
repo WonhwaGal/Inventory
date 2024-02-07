@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using UnityEngine;
 
 namespace ForInventory
 {
@@ -25,46 +24,41 @@ namespace ForInventory
 
         public void Add(InventoryItem item)
         {
-            if(_inventoryList.TryGetValue(item.ItemType, out LinkedList<InventoryItem> linked))
+            if (!_inventoryList.TryGetValue(item.ItemType, out LinkedList<InventoryItem> linked))
             {
-                var listItem = FindItem(linked, item.ID);
-                if(listItem != null)
-                    listItem.Count++;
-                else
-                    linked.AddLast(item).Value.Count = 1;
+                linked = new LinkedList<InventoryItem>();
+                _inventoryList.Add(item.ItemType, linked);
             }
+
+            if(TryFindItem(linked, item.ID, out InventoryItem listItem))
+                listItem.Count++;
             else
-            {
-                var newList = new LinkedList<InventoryItem>();
-                _inventoryList.Add(item.ItemType, newList);
-                newList.AddFirst(item).Value.Count = 1;
-            }
+                linked.AddLast(item).Value.Count = 1;
         }
 
-        public int Remove(InventoryItem item)
+        public void Remove(InventoryItem item, Action<int> changedCallback = null)
         {
             if (_inventoryList.TryGetValue(item.ItemType, out LinkedList<InventoryItem> linked))
             {
-                var listItem = FindItem(linked, item.ID);
-                if(listItem != null)
+                if(TryFindItem(linked, item.ID, out InventoryItem listItem))
                 {
                     listItem.Count--;
                     if (listItem.Count == 0)
                         _inventoryList[item.ItemType].Remove(listItem);
-                    return listItem.Count;
+                    changedCallback?.Invoke(listItem.Count);
                 }
             }
-            return 0;
         }
 
-        private InventoryItem FindItem(LinkedList<InventoryItem> list, Guid id)
+        private bool TryFindItem(LinkedList<InventoryItem> linked, Guid id, out InventoryItem item)
         {
-            foreach (var listItem in list)
+            item = null;
+            foreach (var listItem in linked)
             {
                 if (listItem.ID == id)
-                    return listItem;
+                    item = listItem;
             }
-            return null;
+            return item != null;
         }
 
         public IReadOnlyCollection<InventoryItem> FilterBy(InventoryType type, CharacteristicType characteristic)

@@ -41,9 +41,10 @@ namespace UI
         public void OnPointerExit(PointerEventData eventData)
             => _removeButton.gameObject.SetActive(false);
 
-        private void RemoveItem()
+        private void RemoveItem() => _inventory.Remove(_inventoryItem, ChangeCount);
+
+        private void ChangeCount(int count)
         {
-            var count = _inventory.Remove(_inventoryItem);
             _countText.text = count.ToString();
             if (count == 0)
                 gameObject.SetActive(false);
